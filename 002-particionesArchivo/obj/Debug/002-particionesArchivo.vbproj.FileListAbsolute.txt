@@ -1,0 +1,16 @@
+C:\Users\lenovo\Cursos\Universidad Vb\Ejercicios vb\002-particionesArchivo\002-particionesArchivo\obj\Debug\002-particionesArchivo.vbproj.AssemblyReference.cache
+C:\Users\lenovo\Cursos\Universidad Vb\Ejercicios vb\002-particionesArchivo\002-particionesArchivo\obj\Debug\002-particionesArchivo.vbproj.SuggestedBindingRedirects.cache
+C:\Users\lenovo\Cursos\Universidad Vb\Ejercicios vb\002-particionesArchivo\002-particionesArchivo\obj\Debug\_002_particionesArchivo.frmFileMarge.resources
+C:\Users\lenovo\Cursos\Universidad Vb\Ejercicios vb\002-particionesArchivo\002-particionesArchivo\obj\Debug\_002_particionesArchivo.frmMain.resources
+C:\Users\lenovo\Cursos\Universidad Vb\Ejercicios vb\002-particionesArchivo\002-particionesArchivo\obj\Debug\_002_particionesArchivo.Resources.resources
+C:\Users\lenovo\Cursos\Universidad Vb\Ejercicios vb\002-particionesArchivo\002-particionesArchivo\obj\Debug\002-particionesArchivo.vbproj.GenerateResource.cache
+C:\Users\lenovo\Cursos\Universidad Vb\Ejercicios vb\002-particionesArchivo\002-particionesArchivo\obj\Debug\002-particionesArchivo.vbproj.CoreCompileInputs.cache
+C:\Users\lenovo\Cursos\Universidad Vb\Ejercicios vb\002-particionesArchivo\002-particionesArchivo\bin\Debug\002-particionesArchivo.exe.config
+C:\Users\lenovo\Cursos\Universidad Vb\Ejercicios vb\002-particionesArchivo\002-particionesArchivo\bin\Debug\002-particionesArchivo.exe
+C:\Users\lenovo\Cursos\Universidad Vb\Ejercicios vb\002-particionesArchivo\002-particionesArchivo\bin\Debug\002-particionesArchivo.pdb
+C:\Users\lenovo\Cursos\Universidad Vb\Ejercicios vb\002-particionesArchivo\002-particionesArchivo\bin\Debug\002-particionesArchivo.xml
+C:\Users\lenovo\Cursos\Universidad Vb\Ejercicios vb\002-particionesArchivo\002-particionesArchivo\obj\Debug\002-particionesArchivo.exe
+C:\Users\lenovo\Cursos\Universidad Vb\Ejercicios vb\002-particionesArchivo\002-particionesArchivo\obj\Debug\002-particionesArchivo.xml
+C:\Users\lenovo\Cursos\Universidad Vb\Ejercicios vb\002-particionesArchivo\002-particionesArchivo\obj\Debug\002-particionesArchivo.pdb
+C:\Users\lenovo\Cursos\Universidad Vb\Ejercicios vb\002-particionesArchivo\002-particionesArchivo\bin\Debug\ControlStatus.dll
+C:\Users\lenovo\Cursos\Universidad Vb\Ejercicios vb\002-particionesArchivo\002-particionesArchivo\obj\Debug\002-particionesArchivo.vbproj.CopyComplete
