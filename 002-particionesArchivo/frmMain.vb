@@ -12,6 +12,8 @@ Public Class frmMain
         borderButtons.BordeAutomatico = False
         borderButtons.ColorBorde = ControlPaint.Dark(Color.Green)
     End Sub
+
+#Region "Helpers"
     Private Sub ConvertirAColor(hex As String)
 
         Dim regex As New Regex("^#?[0-9A-Fa-f]{6}$")
@@ -31,4 +33,19 @@ Public Class frmMain
         Dim unido = b Or g << 8 Or r << 16
 
     End Sub
+
+    Private Sub btndividir_Click(sender As Object, e As EventArgs) Handles btndividir.Click, DividirToolStripMenuItem.Click
+        Dim frm As New frmFileSplit()
+        Me.Visible = False
+        frm.ShowDialog()
+        Me.Visible = True
+    End Sub
+
+    Private Sub btnunir_Click(sender As Object, e As EventArgs) Handles btnunir.Click, UnirArchivoToolStripMenuItem.Click
+        Dim frm As New frmFileMarge()
+        Me.Visible = False
+        frm.ShowDialog()
+        Me.Visible = True
+    End Sub
+#End Region
 End Class

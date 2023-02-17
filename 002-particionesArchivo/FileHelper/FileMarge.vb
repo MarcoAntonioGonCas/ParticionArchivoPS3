@@ -22,14 +22,39 @@ Public Class FileMarge
     Private _tamanioBloque As Long = 16777216
     Private _fileFormat As New FilePathFormat()
 
+    Private lstPartesMezcladas As New List(Of FileInfo)
+
     Public Event Progreso(ByVal sender As Object, args As FileMargeProgressArgs)
     Public Event Completado(ByVal sender As Object, args As EventArgs)
+
+
+
     Public Sub New()
 
         _archivoActual = 0
         _archivosAMezclar = 0
 
     End Sub
+    Public Function BorrarPartesUnidas() As Boolean
+
+
+        Try
+            For Each parte In lstPartesMezcladas
+
+
+                parte.Delete()
+
+            Next
+
+        Catch ex As Exception
+
+
+            Return False
+
+        End Try
+        Return True
+    End Function
+
     Private Sub ReiniciarContadores()
         _archivoActual = 0
         _archivosAMezclar = 0
@@ -42,7 +67,7 @@ Public Class FileMarge
         End If
 
         Try
-            Dim nombreArchivoUnido = Me._fileFormat.DevuelveNombreSinParte(archivoPrimeraParte)
+            Dim nombreArchivoUnido = Me._fileFormat.DevuelveSoloNombreSinParte(archivoPrimeraParte)
             Dim rutaArchivoNuevo = Path.Combine(archivoPrimeraParte.DirectoryName, nombreArchivoUnido)
 
 
@@ -66,6 +91,7 @@ Public Class FileMarge
                     parteActual = partesDeArchivo(i)
                     bytesTotalesParte = parteActual.Length
                     contadorParte = 0
+
                     Using fsParte As New FileStream(parteActual.FullName, FileMode.Open)
 
 
@@ -97,7 +123,7 @@ Public Class FileMarge
 
 
             End Using
-
+            lstPartesMezcladas.AddRange(partesDeArchivo)
 
         Catch ex As Exception
             MessageBox.Show($"{ex.Message} {ex.StackTrace}")
@@ -124,14 +150,7 @@ Public Class FileMarge
 
     End Sub
     Public Function ExisteArchivoOriginal(primeraParte As FileInfo) As Boolean
-
-        Dim directorioActual As DirectoryInfo = primeraParte.Directory
-        Dim nombre As String = primeraParte.Name
-
-        nombre = _fileFormat.DevuelveNombreSinParte(primeraParte)
-
-
-        Return File.Exists(Path.Combine(directorioActual.FullName, nombre))
+        Return File.Exists(_fileFormat.DevuelvePathSinNumeroParte(primeraParte))
     End Function
 
     Private Function TamanioBytes(ParamArray archivos As FileInfo()) As Long

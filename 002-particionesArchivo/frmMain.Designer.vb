@@ -28,8 +28,8 @@ Partial Class frmMain
         Me.DividirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UnirArchivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.btnunir = New System.Windows.Forms.Button()
+        Me.btndividir = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -53,7 +53,7 @@ Partial Class frmMain
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(177, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(135, 6)
         '
         'DividirToolStripMenuItem
         '
@@ -69,43 +69,46 @@ Partial Class frmMain
         '
         'Panel1
         '
-        Me.Panel1.Controls.Add(Me.Button2)
-        Me.Panel1.Controls.Add(Me.Button1)
+        Me.Panel1.Controls.Add(Me.btnunir)
+        Me.Panel1.Controls.Add(Me.btndividir)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 24)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(646, 55)
         Me.Panel1.TabIndex = 2
         '
-        'Button1
+        'btnunir
         '
-        Me.Button1.BackColor = System.Drawing.Color.White
-        Me.Button1.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Button1.Location = New System.Drawing.Point(0, 0)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(137, 55)
-        Me.Button1.TabIndex = 0
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.btnunir.AutoSize = True
+        Me.btnunir.BackColor = System.Drawing.Color.White
+        Me.btnunir.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnunir.Dock = System.Windows.Forms.DockStyle.Right
+        Me.btnunir.FlatAppearance.BorderSize = 0
+        Me.btnunir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnunir.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnunir.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.btnunir.Location = New System.Drawing.Point(320, 0)
+        Me.btnunir.Name = "btnunir"
+        Me.btnunir.Size = New System.Drawing.Size(326, 55)
+        Me.btnunir.TabIndex = 1
+        Me.btnunir.Text = "Unir partes de archivo"
+        Me.btnunir.UseVisualStyleBackColor = False
         '
-        'Button2
+        'btndividir
         '
-        Me.Button2.BackColor = System.Drawing.Color.White
-        Me.Button2.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Button2.FlatAppearance.BorderSize = 0
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Button2.Location = New System.Drawing.Point(137, 0)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(137, 55)
-        Me.Button2.TabIndex = 1
-        Me.Button2.Text = "Button2"
-        Me.Button2.UseVisualStyleBackColor = False
+        Me.btndividir.BackColor = System.Drawing.Color.White
+        Me.btndividir.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btndividir.Dock = System.Windows.Forms.DockStyle.Left
+        Me.btndividir.FlatAppearance.BorderSize = 0
+        Me.btndividir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btndividir.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btndividir.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.btndividir.Location = New System.Drawing.Point(0, 0)
+        Me.btndividir.Name = "btndividir"
+        Me.btndividir.Size = New System.Drawing.Size(320, 55)
+        Me.btndividir.TabIndex = 0
+        Me.btndividir.Text = "Dividir archivo"
+        Me.btndividir.UseVisualStyleBackColor = False
         '
         'frmMain
         '
@@ -121,6 +124,7 @@ Partial Class frmMain
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -131,6 +135,6 @@ Partial Class frmMain
     Friend WithEvents DividirToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents UnirArchivoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnunir As Button
+    Friend WithEvents btndividir As Button
 End Class

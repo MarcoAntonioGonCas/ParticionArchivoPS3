@@ -8,7 +8,10 @@ Public Class FilePathFormat
     Private regexPuntoPart As New Regex("[.]\d+$")
 
     Private tipoFormato As TipoParticion
-    Public Function DevuelveNombreSinParte(archivoPrimeraParte As FileInfo) As String
+    Public Function DevuelveSoloNombreSinParte(archivoPrimeraParte As FileInfo) As String
+        Return Path.GetFileName(DevuelvePathSinNumeroParte(archivoPrimeraParte))
+    End Function
+    Public Function DevuelvePathSinNumeroParte(archivoPrimeraParte As FileInfo) As String
 
         Dim tipo = ObtenerTipoParticion(archivoPrimeraParte)
 
@@ -82,19 +85,19 @@ Public Class FilePathFormat
 
         Dim tipo As TipoParticion = ObtenerTipoParticion(archivoPrimeraParte)
         Dim directorio As DirectoryInfo = archivoPrimeraParte.Directory
-        Dim nombreSinParte As String = DevuelveNombreSinParte(archivoPrimeraParte)
+        Dim nombreSinParte As String = DevuelveSoloNombreSinParte(archivoPrimeraParte)
         Dim partesArchivo() As FileInfo
 
 
         Select Case tipo
             Case TipoParticion.archivo666Num
-                partesArchivo = directorio.EnumerateFiles($"{nombreSinParte}.666*")
+                partesArchivo = directorio.EnumerateFiles($"{nombreSinParte}.666*").ToArray()
             Case TipoParticion.archivoPuntoNum
-                partesArchivo = directorio.EnumerateFiles($"{nombreSinParte}.*")
+                partesArchivo = directorio.EnumerateFiles($"{nombreSinParte}.*").ToArray()
 
             Case TipoParticion.archivoNumPart
 
-                partesArchivo = directorio.EnumerateFiles($"{nombreSinParte}.*.part")
+                partesArchivo = directorio.EnumerateFiles($"{nombreSinParte}.*.part").ToArray()
 
 
         End Select
