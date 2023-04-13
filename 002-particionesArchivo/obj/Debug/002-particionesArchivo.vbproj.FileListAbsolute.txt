@@ -13,3 +13,5 @@ C:\Users\lenovo\Cursos\Universidad Vb\Ejercicios vb\002-particionesArchivo\002-p
 C:\Users\lenovo\Cursos\Universidad Vb\Ejercicios vb\002-particionesArchivo\002-particionesArchivo\obj\Debug\002-particionesArchivo.pdb
 C:\Users\lenovo\Cursos\Universidad Vb\Ejercicios vb\002-particionesArchivo\002-particionesArchivo\bin\Debug\ControlStatus.dll
 C:\Users\lenovo\Cursos\Universidad Vb\Ejercicios vb\002-particionesArchivo\002-particionesArchivo\obj\Debug\002-particionesArchivo.vbproj.CopyComplete
+C:\Users\lenovo\Cursos\Universidad Vb\Ejercicios vb\002-particionesArchivo\002-particionesArchivo\obj\Debug\_002_particionesArchivo.frmFileSpam.resources
+C:\Users\lenovo\Cursos\Universidad Vb\Ejercicios vb\002-particionesArchivo\002-particionesArchivo\obj\Debug\_002_particionesArchivo.frmFileSplit.resources

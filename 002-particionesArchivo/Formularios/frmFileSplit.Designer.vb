@@ -22,9 +22,24 @@ Partial Class frmFileSplit
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        components = New System.ComponentModel.Container
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.SuspendLayout()
+        '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        '
+        'frmFileSplit
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Text = "frmFileSpli"
+        Me.ClientSize = New System.Drawing.Size(624, 232)
+        Me.HelpButton = True
+        Me.Name = "frmFileSplit"
+        Me.Text = "Archivo"
+        Me.ResumeLayout(False)
+
     End Sub
+
+    Friend WithEvents OpenFileDialog1 As OpenFileDialog
 End Class

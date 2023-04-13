@@ -2,20 +2,7 @@
 Imports System.IO
 Imports System.Security.Cryptography
 
-Public Class ProgressSplitArgs
-    Inherits EventArgs
 
-    Public Property Mensaje As String
-    Public Property ArchivoActual As Integer
-    Public Property ArchivosTotales As Integer
-    Public Property TotalPartes As Integer
-    Public Property ParteActual As Integer
-    Public Property BytesTotales As Long
-    Public Property ByteActual As Long
-    Public Property ProgresosParteActual As Decimal
-    Public Property ProgresoGeneralArchivo As Decimal
-    Public Property ProgresoGeneral As Decimal
-End Class
 
 
 
@@ -54,7 +41,7 @@ Public Class FileSplit
         End If
 
     End Sub
-    Public Event ProgresoSplit(ByVal sender As Object, progress As ProgressSplitArgs)
+    Public Event ProgresoSplit(ByVal sender As Object, progress As FileSplitProgressArgs)
     Public Event ProgresoCompletado(ByVal sender As Object, e As EventArgs)
     Public ReadOnly Property TamanioBytesSplit As Long
         Get
@@ -156,7 +143,7 @@ Public Class FileSplit
                     Me.bytesContadorArchivos += bytesLeidos
 
 
-                    Dim info As New ProgressSplitArgs With {
+                    Dim info As New FileSplitProgressArgs With {
                         .BytesTotales = archivoSeleccionado.Length,
                         .ByteActual = (tamanioBytesParte * i) + bytesLeidosContador,
                         .Mensaje = $"{bytesLeidosContador} {bytesLeidos} : {Me.bytesArchivosTotales} {Me.bytesContadorArchivos}",

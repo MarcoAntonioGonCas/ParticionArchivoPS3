@@ -2,29 +2,24 @@
 Imports System.IO
 Imports System.Text.RegularExpressions
 
-Public Class FileMargeProgressArgs
-    Inherits EventArgs
-
-
-    Public Property ArchivosEncontrados As Integer
-    Public Property ArchivoActual As Integer
-    Public Property ParteDeArchivo As Integer
-    Public Property PartesDeArchivo As Integer
-
-    Public Property ProgresoArchivo As Decimal
-    Public Property ProgresoArchivos As Decimal
-    Public Property ProgresoParteActual As Decimal
-End Class
 
 Public Class FileMarge
+
+    'Contador de los archivos que se uniran
     Private _archivosAMezclar As Integer
+    'Contador del archivo actual
     Private _archivoActual As Integer
-    Private _tamanioBloque As Long = 16777216
+
+    'Tamaño del boque de lectura 16MB
+    Private _tamanioBloque As Long = 16777216 '16MB = 16 * 1024 * 1024
     Private _fileFormat As New FilePathFormat()
 
+    'Lista auxiliar la cual indica que partes ya fueron mezcladas
     Private lstPartesMezcladas As New List(Of FileInfo)
 
+    'Evento el cual indica el progreso de la operacion 
     Public Event Progreso(ByVal sender As Object, args As FileMargeProgressArgs)
+    'Evento el cual se invoco cual 
     Public Event Completado(ByVal sender As Object, args As EventArgs)
 
 
@@ -33,33 +28,49 @@ Public Class FileMarge
 
         _archivoActual = 0
         _archivosAMezclar = 0
-
     End Sub
-    Public Function BorrarPartesUnidas() As Boolean
 
+    'Metodo ayuda a eliminar las partes que se estaban mezclando en caso de algun error
+    Public Function BorrarPartesUnidas() As Boolean
 
         Try
             For Each parte In lstPartesMezcladas
-
-
                 parte.Delete()
-
             Next
 
+            lstPartesMezcladas.Clear()
+
         Catch ex As Exception
-
-
             Return False
-
         End Try
         Return True
     End Function
 
-    Private Sub ReiniciarContadores()
+    'Reiniciar en caso de nuevas mezclas
+    Private Sub Reset()
+
+        lstPartesMezcladas.Clear()
         _archivoActual = 0
         _archivosAMezclar = 0
     End Sub
 
+
+
+    Public Sub InvocarProgreso(parteActual As Integer, partes As Integer, bytesParte As Long, bytesTotalesParte As Long, bytesArchivoCombinado As Long, bytesTotalesArchivoCombinado As Long)
+
+
+        RaiseEvent Progreso(Me, New FileMargeProgressArgs() With
+                            {
+                            .ArchivoActual = _archivoActual,
+                            .ArchivosEncontrados = _archivosAMezclar,
+                            .ParteDeArchivo = parteActual,
+                            .PartesDeArchivo = partes,
+                            .ProgresoParteActual = bytesParte / bytesTotalesParte,
+                            .ProgresoArchivo = bytesArchivoCombinado / bytesTotalesArchivoCombinado,
+                            .ProgresoArchivos = _archivoActual / _archivosAMezclar
+                            })
+    End Sub
+    'Metodo principal 
     Public Function Mezclar(archivoPrimeraParte As FileInfo) As Boolean
 
         If ExisteArchivoOriginal(archivoPrimeraParte) Then
@@ -67,26 +78,32 @@ Public Class FileMarge
         End If
 
         Try
-            Dim nombreArchivoUnido = Me._fileFormat.DevuelveSoloNombreSinParte(archivoPrimeraParte)
-            Dim rutaArchivoNuevo = Path.Combine(archivoPrimeraParte.DirectoryName, nombreArchivoUnido)
 
+            'Obtiene el nombre original sin el numero de parte
+            Dim rutaArchivoNuevo = _fileFormat.DevuelvePathSinNumeroParte(archivoPrimeraParte)
 
+            'Obtiene todas las partes del archivo en un array 
             Dim partesDeArchivo As FileInfo() = _fileFormat.ObtenerPartesDeArchivo(archivoPrimeraParte)
-            Dim lenPartesDeArchivo As Integer = partesDeArchivo.Length
 
+            'Cantidad de las partes del archivo
+            Dim len As Integer = partesDeArchivo.Length
+
+            'Bytes de todas las partes ya mezcladas
             Dim tamanioPartesUnidas As Long = TamanioBytes(partesDeArchivo)
+
+            'Contador de bytes de las partes unidas
             Dim contadorPastesUnidas As Long = 0
 
+            Dim buffer(_tamanioBloque - 1) As Byte
 
             Using fsArchivo As New FileStream(rutaArchivoNuevo, FileMode.Create)
 
                 Dim bytesTotalesParte As Long = 0
                 Dim contadorParte As Long = 0
                 Dim parteActual As FileInfo
-                Dim buffer(_tamanioBloque - 1) As Byte
-                Dim leidos As Integer
+                Dim leidos As Long
 
-                For i = 0 To partesDeArchivo.Length - 1
+                For i = 0 To len - 1
 
                     parteActual = partesDeArchivo(i)
                     bytesTotalesParte = parteActual.Length
@@ -100,20 +117,12 @@ Public Class FileMarge
 
                             leidos = fsParte.Read(buffer, 0, _tamanioBloque)
                             fsArchivo.Write(buffer, 0, leidos)
+
+
                             contadorParte += leidos
                             contadorPastesUnidas += leidos
+                            InvocarProgreso(i + 1, len, contadorParte, parteActual.Length, contadorPastesUnidas, tamanioPartesUnidas)
 
-                            RaiseEvent Progreso(Me, New FileMargeProgressArgs() With
-                            {
-                            .ArchivoActual = _archivoActual,
-                            .ArchivosEncontrados = _archivosAMezclar,
-                            .ParteDeArchivo = i + 1,
-                            .PartesDeArchivo = lenPartesDeArchivo,
-                            .ProgresoParteActual = contadorParte / parteActual.Length,
-                            .ProgresoArchivo = contadorPastesUnidas / tamanioPartesUnidas,
-                            .ProgresoArchivos = _archivoActual / _archivosAMezclar
-                            })
-                            '.ProgresoParteActual = contadorParte / parteActual.Length,
                         Loop
 
                     End Using
@@ -124,44 +133,34 @@ Public Class FileMarge
 
             End Using
             lstPartesMezcladas.AddRange(partesDeArchivo)
-
         Catch ex As Exception
+
             MessageBox.Show($"{ex.Message} {ex.StackTrace}")
+
             Return False
         End Try
-        Return True
 
+        Return True
     End Function
 
     Public Sub MezclarArchivos(ParamArray archivos As FileInfo())
-        ReiniciarContadores()
+
+        Reset()
+
         _archivosAMezclar = archivos.Length
-
-
-
 
         For i = 0 To archivos.Length - 1
 
             Me._archivoActual = i + 1
+
             Mezclar(archivos(i))
+
         Next
+
+
         RaiseEvent Completado(Me, New EventArgs())
 
-
     End Sub
-    Public Function ExisteArchivoOriginal(primeraParte As FileInfo) As Boolean
-        Return File.Exists(_fileFormat.DevuelvePathSinNumeroParte(primeraParte))
-    End Function
-
-    Private Function TamanioBytes(ParamArray archivos As FileInfo()) As Long
-        Dim tamanio As Long = 0L
-
-        For Each a In archivos
-            tamanio += a.Length
-        Next
-
-        Return tamanio
-    End Function
     Public Function ObtieneArchivosParticionados(directorio As DirectoryInfo, Optional opcionesBusqueda As SearchOption = SearchOption.AllDirectories) As FileInfo()
 
 
@@ -182,4 +181,5 @@ Public Class FileMarge
         )
         Return archivosParticionados.ToArray()
     End Function
+
 End Class

@@ -10,9 +10,23 @@ Public Class frmMain
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         borderButtons = New BorderControlStatusClick(Panel1, 3)
         borderButtons.BordeAutomatico = False
-        borderButtons.ColorBorde = ControlPaint.Dark(Color.Green)
+        borderButtons.ColorBorde = Color.DarkCyan
+
+        ToolStripLabel1.Text = $"{Now.ToString("yyyy")} Ma"
+
     End Sub
 
+
+    Private Sub OpenForm(Of T As {Form, New})()
+
+        Dim frm As New T()
+        frm.StartPosition = FormStartPosition.CenterScreen
+
+        Me.Visible = False
+        frm.ShowDialog()
+        Me.Visible = True
+
+    End Sub
 #Region "Helpers"
     Private Sub ConvertirAColor(hex As String)
 
@@ -35,17 +49,19 @@ Public Class frmMain
     End Sub
 
     Private Sub btndividir_Click(sender As Object, e As EventArgs) Handles btndividir.Click, DividirToolStripMenuItem.Click
-        Dim frm As New frmFileSplit()
-        Me.Visible = False
-        frm.ShowDialog()
-        Me.Visible = True
+        OpenForm(Of frmFileSplit)()
     End Sub
 
     Private Sub btnunir_Click(sender As Object, e As EventArgs) Handles btnunir.Click, UnirArchivoToolStripMenuItem.Click
-        Dim frm As New frmFileMarge()
-        Me.Visible = False
-        frm.ShowDialog()
-        Me.Visible = True
+        OpenForm(Of frmFileMarge)()
+    End Sub
+
+    Private Sub CrearArchivoAleatorioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CrearArchivoAleatorioToolStripMenuItem.Click
+        OpenForm(Of frmFileSpam)()
+    End Sub
+
+    Private Sub MenuStrip1_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles MenuStrip1.ItemClicked
+
     End Sub
 #End Region
 End Class

@@ -28,8 +28,12 @@ Partial Class frmFileMarge
         Me.CheckedListBoxDivi = New System.Windows.Forms.CheckedListBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.StatusStrip2 = New System.Windows.Forms.StatusStrip()
+        Me.sslblInfoActual = New System.Windows.Forms.ToolStripStatusLabel()
         Me.prgActual = New System.Windows.Forms.ProgressBar()
         Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
+        Me.stlblInfoTotal = New System.Windows.Forms.ToolStripStatusLabel()
         Me.prgTotal = New System.Windows.Forms.ProgressBar()
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.btnCancelar = New System.Windows.Forms.Button()
@@ -37,20 +41,16 @@ Partial Class frmFileMarge
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.OpcionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EliminarParticionesAlCompletarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
-        Me.stlblInfoTotal = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.StatusStrip2 = New System.Windows.Forms.StatusStrip()
-        Me.sslblInfoActual = New System.Windows.Forms.ToolStripStatusLabel()
         Panel1 = New System.Windows.Forms.Panel()
         Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel5.SuspendLayout()
+        Me.StatusStrip2.SuspendLayout()
         Me.Panel4.SuspendLayout()
+        Me.StatusStrip1.SuspendLayout()
         Me.Panel6.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
-        Me.StatusStrip1.SuspendLayout()
-        Me.StatusStrip2.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
@@ -65,6 +65,8 @@ Partial Class frmFileMarge
         'btnSelecCarpeta
         '
         Me.btnSelecCarpeta.Dock = System.Windows.Forms.DockStyle.Left
+        Me.btnSelecCarpeta.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSelecCarpeta.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.btnSelecCarpeta.Location = New System.Drawing.Point(0, 0)
         Me.btnSelecCarpeta.Name = "btnSelecCarpeta"
         Me.btnSelecCarpeta.Size = New System.Drawing.Size(181, 68)
@@ -110,6 +112,21 @@ Partial Class frmFileMarge
         Me.Panel5.Size = New System.Drawing.Size(804, 68)
         Me.Panel5.TabIndex = 1
         '
+        'StatusStrip2
+        '
+        Me.StatusStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.sslblInfoActual})
+        Me.StatusStrip2.Location = New System.Drawing.Point(0, 46)
+        Me.StatusStrip2.Name = "StatusStrip2"
+        Me.StatusStrip2.Size = New System.Drawing.Size(804, 22)
+        Me.StatusStrip2.TabIndex = 2
+        Me.StatusStrip2.Text = "StatusStrip2"
+        '
+        'sslblInfoActual
+        '
+        Me.sslblInfoActual.Name = "sslblInfoActual"
+        Me.sslblInfoActual.Size = New System.Drawing.Size(16, 17)
+        Me.sslblInfoActual.Text = "..."
+        '
         'prgActual
         '
         Me.prgActual.Dock = System.Windows.Forms.DockStyle.Top
@@ -127,6 +144,21 @@ Partial Class frmFileMarge
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(804, 58)
         Me.Panel4.TabIndex = 0
+        '
+        'StatusStrip1
+        '
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.stlblInfoTotal})
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 36)
+        Me.StatusStrip1.Name = "StatusStrip1"
+        Me.StatusStrip1.Size = New System.Drawing.Size(804, 22)
+        Me.StatusStrip1.TabIndex = 2
+        Me.StatusStrip1.Text = "StatusStrip1"
+        '
+        'stlblInfoTotal
+        '
+        Me.stlblInfoTotal.Name = "stlblInfoTotal"
+        Me.stlblInfoTotal.Size = New System.Drawing.Size(19, 17)
+        Me.stlblInfoTotal.Text = "...."
         '
         'prgTotal
         '
@@ -150,7 +182,7 @@ Partial Class frmFileMarge
         '
         Me.btnCancelar.Dock = System.Windows.Forms.DockStyle.Right
         Me.btnCancelar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCancelar.ForeColor = System.Drawing.Color.Gray
+        Me.btnCancelar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.btnCancelar.Location = New System.Drawing.Point(684, 0)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(120, 52)
@@ -162,7 +194,7 @@ Partial Class frmFileMarge
         '
         Me.btnAceptar.Dock = System.Windows.Forms.DockStyle.Left
         Me.btnAceptar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAceptar.ForeColor = System.Drawing.Color.Gray
+        Me.btnAceptar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.btnAceptar.Location = New System.Drawing.Point(0, 0)
         Me.btnAceptar.Name = "btnAceptar"
         Me.btnAceptar.Size = New System.Drawing.Size(120, 52)
@@ -192,36 +224,6 @@ Partial Class frmFileMarge
         Me.EliminarParticionesAlCompletarToolStripMenuItem.Size = New System.Drawing.Size(247, 22)
         Me.EliminarParticionesAlCompletarToolStripMenuItem.Text = "Eliminar particiones al completar"
         '
-        'StatusStrip1
-        '
-        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.stlblInfoTotal})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 36)
-        Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(804, 22)
-        Me.StatusStrip1.TabIndex = 2
-        Me.StatusStrip1.Text = "StatusStrip1"
-        '
-        'stlblInfoTotal
-        '
-        Me.stlblInfoTotal.Name = "stlblInfoTotal"
-        Me.stlblInfoTotal.Size = New System.Drawing.Size(19, 17)
-        Me.stlblInfoTotal.Text = "...."
-        '
-        'StatusStrip2
-        '
-        Me.StatusStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.sslblInfoActual})
-        Me.StatusStrip2.Location = New System.Drawing.Point(0, 46)
-        Me.StatusStrip2.Name = "StatusStrip2"
-        Me.StatusStrip2.Size = New System.Drawing.Size(804, 22)
-        Me.StatusStrip2.TabIndex = 2
-        Me.StatusStrip2.Text = "StatusStrip2"
-        '
-        'sslblInfoActual
-        '
-        Me.sslblInfoActual.Name = "sslblInfoActual"
-        Me.sslblInfoActual.Size = New System.Drawing.Size(16, 17)
-        Me.sslblInfoActual.Text = "..."
-        '
         'frmFileMarge
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -240,15 +242,15 @@ Partial Class frmFileMarge
         Me.Panel3.ResumeLayout(False)
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
+        Me.StatusStrip2.ResumeLayout(False)
+        Me.StatusStrip2.PerformLayout()
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
+        Me.StatusStrip1.ResumeLayout(False)
+        Me.StatusStrip1.PerformLayout()
         Me.Panel6.ResumeLayout(False)
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
-        Me.StatusStrip1.ResumeLayout(False)
-        Me.StatusStrip1.PerformLayout()
-        Me.StatusStrip2.ResumeLayout(False)
-        Me.StatusStrip2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

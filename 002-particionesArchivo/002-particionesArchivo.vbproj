@@ -51,16 +51,21 @@
     <Reference Include="ControlStatus">
       <HintPath>..\..\..\..\..\Desktop\ControlStatus.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Remoting" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="UIAutomationClient" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -77,15 +82,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExtenControles\FileMargeInfoCheckBox.vb" />
+    <Compile Include="FileHelper\Spam\FileSpamProgressArgs.vb" />
+    <Compile Include="FileHelper\Split\ProgressSplitArgs.vb" />
+    <Compile Include="FileHelper\FileAux.vb" />
+    <Compile Include="FileHelper\Marge\FileMargeProgressArgs.vb" />
     <Compile Include="FileHelper\FilePathFormat.vb" />
-    <Compile Include="FileHelper\FileMarge.vb" />
-    <Compile Include="FileHelper\FileSpan.vb" />
-    <Compile Include="FileHelper\FileSplit.vb" />
+    <Compile Include="FileHelper\Marge\FileMarge.vb" />
+    <Compile Include="FileHelper\Spam\FileSpam.vb" />
+    <Compile Include="FileHelper\Split\FileSplit.vb" />
     <Compile Include="FileHelper\TipoParticion.vb" />
     <Compile Include="Formularios\frmFileMarge.Designer.vb">
       <DependentUpon>frmFileMarge.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\frmFileMarge.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmFileSpam.Designer.vb">
+      <DependentUpon>frmFileSpam.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmFileSpam.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\frmFileSplit.Designer.vb">
@@ -121,6 +136,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Formularios\frmFileMarge.resx">
       <DependentUpon>frmFileMarge.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmFileSpam.resx">
+      <DependentUpon>frmFileSpam.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmFileSplit.resx">
+      <DependentUpon>frmFileSplit.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>
