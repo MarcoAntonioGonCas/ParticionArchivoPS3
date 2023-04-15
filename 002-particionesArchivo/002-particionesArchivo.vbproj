@@ -82,7 +82,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExtenControles\FileMargeInfoCheckBox.vb" />
+    <Compile Include="ExtenControles\FileSplitInfoCheckBox.vb" />
     <Compile Include="FileHelper\Spam\FileSpamProgressArgs.vb" />
+    <Compile Include="FileHelper\Split\FileSplitErrorArgs.vb" />
     <Compile Include="FileHelper\Split\ProgressSplitArgs.vb" />
     <Compile Include="FileHelper\FileAux.vb" />
     <Compile Include="FileHelper\Marge\FileMargeProgressArgs.vb" />

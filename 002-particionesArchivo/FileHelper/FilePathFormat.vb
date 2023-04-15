@@ -63,23 +63,19 @@ Public Class FilePathFormat
 
     End Function
 
-    Public Function ObtenerNumeroDeParte(archivo As FileInfo, numeroParte As Integer, tipoParticion As TipoParticion, Optional padding As Integer = 0) As String
+    Public Function ObtenerNombreNumeroDeParte(archivo As FileInfo, numeroParte As Integer, tipoParticion As TipoParticion, Optional padding As Integer = 0) As String
         Dim nombre As String = archivo.FullName
 
         If tipoParticion = TipoParticion.archivoNumPart Then
             nombre = $"{nombre}.{numeroParte.ToString().PadLeft(padding)}.part"
         ElseIf tipoParticion = TipoParticion.archivoPuntoNum Then
             nombre = $"{nombre}.{numeroParte.ToString().PadLeft(padding)}"
-        ElseIf tipoFormato = TipoParticion.archivo666Num Then
-
+        ElseIf tipoParticion = TipoParticion.archivo666Num Then
             nombre = ObtenerNumeroParte666(archivo, numeroParte)
         End If
 
 
-
-
         Return nombre
-
     End Function
     Public Function ObtenerPartesDeArchivo(archivoPrimeraParte As FileInfo) As FileInfo()
 
@@ -98,7 +94,8 @@ Public Class FilePathFormat
             Case TipoParticion.archivoNumPart
 
                 partesArchivo = directorio.EnumerateFiles($"{nombreSinParte}.*.part").ToArray()
-
+            Case Else
+                partesArchivo = Nothing
 
         End Select
 

@@ -59,17 +59,17 @@ Partial Class frmFileMarge
         Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Panel1.Location = New System.Drawing.Point(0, 24)
         Panel1.Name = "Panel1"
-        Panel1.Size = New System.Drawing.Size(804, 68)
+        Panel1.Size = New System.Drawing.Size(804, 43)
         Panel1.TabIndex = 0
         '
         'btnSelecCarpeta
         '
         Me.btnSelecCarpeta.Dock = System.Windows.Forms.DockStyle.Left
-        Me.btnSelecCarpeta.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSelecCarpeta.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.btnSelecCarpeta.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSelecCarpeta.ForeColor = System.Drawing.Color.Black
         Me.btnSelecCarpeta.Location = New System.Drawing.Point(0, 0)
         Me.btnSelecCarpeta.Name = "btnSelecCarpeta"
-        Me.btnSelecCarpeta.Size = New System.Drawing.Size(181, 68)
+        Me.btnSelecCarpeta.Size = New System.Drawing.Size(181, 43)
         Me.btnSelecCarpeta.TabIndex = 0
         Me.btnSelecCarpeta.Text = "Seleccionar carpeta"
         Me.btnSelecCarpeta.UseVisualStyleBackColor = True
@@ -78,7 +78,7 @@ Partial Class frmFileMarge
         '
         Me.Panel2.Controls.Add(Me.CheckedListBoxDivi)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel2.Location = New System.Drawing.Point(0, 92)
+        Me.Panel2.Location = New System.Drawing.Point(0, 67)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(804, 139)
         Me.Panel2.TabIndex = 1
@@ -173,19 +173,19 @@ Partial Class frmFileMarge
         Me.Panel6.Controls.Add(Me.btnCancelar)
         Me.Panel6.Controls.Add(Me.btnAceptar)
         Me.Panel6.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel6.Location = New System.Drawing.Point(0, 231)
+        Me.Panel6.Location = New System.Drawing.Point(0, 206)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(804, 52)
+        Me.Panel6.Size = New System.Drawing.Size(804, 38)
         Me.Panel6.TabIndex = 3
         '
         'btnCancelar
         '
         Me.btnCancelar.Dock = System.Windows.Forms.DockStyle.Right
-        Me.btnCancelar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCancelar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.btnCancelar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCancelar.ForeColor = System.Drawing.Color.Black
         Me.btnCancelar.Location = New System.Drawing.Point(684, 0)
         Me.btnCancelar.Name = "btnCancelar"
-        Me.btnCancelar.Size = New System.Drawing.Size(120, 52)
+        Me.btnCancelar.Size = New System.Drawing.Size(120, 38)
         Me.btnCancelar.TabIndex = 1
         Me.btnCancelar.Text = "Cancelar"
         Me.btnCancelar.UseVisualStyleBackColor = True
@@ -193,11 +193,11 @@ Partial Class frmFileMarge
         'btnAceptar
         '
         Me.btnAceptar.Dock = System.Windows.Forms.DockStyle.Left
-        Me.btnAceptar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAceptar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.btnAceptar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAceptar.ForeColor = System.Drawing.Color.Black
         Me.btnAceptar.Location = New System.Drawing.Point(0, 0)
         Me.btnAceptar.Name = "btnAceptar"
-        Me.btnAceptar.Size = New System.Drawing.Size(120, 52)
+        Me.btnAceptar.Size = New System.Drawing.Size(120, 38)
         Me.btnAceptar.TabIndex = 0
         Me.btnAceptar.Text = "Aceptar"
         Me.btnAceptar.UseVisualStyleBackColor = True
@@ -236,7 +236,7 @@ Partial Class frmFileMarge
         Me.Controls.Add(Me.MenuStrip1)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "frmFileMarge"
-        Me.Text = "frmFileMarge"
+        Me.Text = "Mezclar"
         Panel1.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
         Me.Panel3.ResumeLayout(False)

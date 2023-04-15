@@ -89,7 +89,7 @@ Public Class FileMarge
             Dim len As Integer = partesDeArchivo.Length
 
             'Bytes de todas las partes ya mezcladas
-            Dim tamanioPartesUnidas As Long = TamanioBytes(partesDeArchivo)
+            Dim tamanioPartesUnidas As Long = SumaBytesArchivos(partesDeArchivo)
 
             'Contador de bytes de las partes unidas
             Dim contadorPastesUnidas As Long = 0

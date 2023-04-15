@@ -9,7 +9,7 @@ Public Module FileAux
     End Function
 
 
-    Public Function TamanioBytes(ParamArray archivos As FileInfo()) As Long
+    Public Function SumaBytesArchivos(ParamArray archivos As FileInfo()) As Long
         Dim tamanio As Long = 0L
 
         For Each a In archivos

@@ -5,6 +5,8 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "002-particionesArchivo", "002-particionesArchivo\002-particionesArchivo.vbproj", "{574058D1-BC30-4DE5-9175-056B3EB5CBD8}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "UnitTestPartcionesArchivo", "UnitTestPartcionesArchivo\UnitTestPartcionesArchivo.vbproj", "{CE5C8091-45AF-47EB-884F-0634D84517EB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{574058D1-BC30-4DE5-9175-056B3EB5CBD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{574058D1-BC30-4DE5-9175-056B3EB5CBD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{574058D1-BC30-4DE5-9175-056B3EB5CBD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE5C8091-45AF-47EB-884F-0634D84517EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE5C8091-45AF-47EB-884F-0634D84517EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE5C8091-45AF-47EB-884F-0634D84517EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE5C8091-45AF-47EB-884F-0634D84517EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

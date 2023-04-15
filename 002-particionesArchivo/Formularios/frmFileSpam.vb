@@ -5,6 +5,8 @@ Public Class frmFileSpam
 
     Private ruta As String
     Private rdn As New Random()
+    Private enCurso As Boolean = False
+
     '97 - 122
     Private WithEvents fileSpam As New FileSpam()
 
@@ -67,6 +69,7 @@ Public Class frmFileSpam
 
             Task.Run(Sub()
                          Iniciar(numBytes)
+                         enCurso = True
                      End Sub
                 )
 
@@ -126,7 +129,7 @@ Public Class frmFileSpam
     End Sub
     Private Sub progreso_completado(sender As Object, e As EventArgs) Handles fileSpam.ProgresoCompletado
         RichTextBox1.AppendText(vbNewLine + "........Completado...........")
-
+        enCurso = False
 
         AbrirCarpeta(ruta)
     End Sub
